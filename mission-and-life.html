@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 年度承命小組聚會安排</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft JhengHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #a8c5e6 0%, #c8a8d8 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #a8c5e6 0%, #c8a8d8 100%);
+            color: #4a5568;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vision {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+        
+        .vision h2 {
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #4a5568;
+        }
+        
+        .vision p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #2d3748;
+        }
+        
+        .verse {
+            background: #f7f3ff;
+            padding: 25px 30px;
+            border-left: 5px solid #b8a8d8;
+            margin: 30px;
+            border-radius: 10px;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .verse p {
+            line-height: 1.8;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        .verse cite {
+            display: block;
+            text-align: right;
+            color: #9b87c4;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 25px 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #9b87c4 0%, #b8a8d8 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(155, 135, 196, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(155, 135, 196, 0.4);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .legend {
+            background: #f8f9ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+        }
+        
+        .color-rest { background: #dfe7f0; }
+        .color-journey { background: #ffd89b; }
+        .color-life { background: #a8e6cf; }
+        .color-bible { background: #b8d4f1; }
+        .color-special { background: #ffb4d1; }
+        
+        .month-section {
+            margin-bottom: 40px;
+        }
+        
+        .month-header {
+            background: linear-gradient(135deg, #a8c5e6 0%, #c8a8d8 100%);
+            color: #4a5568;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .week-card {
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .week-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+        }
+        
+        .week-card.rest {
+            background: linear-gradient(135deg, #dfe7f0 0%, #d0dae6 100%);
+            color: #4a5568;
+        }
+        
+        .week-card.journey {
+            background: linear-gradient(135deg, #ffd89b 0%, #ffca7a 100%);
+            color: #4a5568;
+        }
+        
+        .week-card.life {
+            background: linear-gradient(135deg, #a8e6cf 0%, #8dd9b8 100%);
+            color: #2d5744;
+        }
+        
+        .week-card.bible {
+            background: linear-gradient(135deg, #b8d4f1 0%, #9fc4eb 100%);
+            color: #2d4a68;
+        }
+        
+        .week-card.special {
+            background: linear-gradient(135deg, #ffb4d1 0%, #ffa0c3 100%);
+            color: #6b2d4a;
+        }
+        
+        .week-card.pause {
+            background: linear-gradient(135deg, #ffb4d1 0%, #ffa0c3 100%);
+            color: #6b2d4a;
+        }
+        
+        .week-card.absent {
+            background: linear-gradient(135deg, #dfe7f0 0%, #d0dae6 100%);
+            color: #4a5568;
+        }
+        
+        .week-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+        }
+        
+        .week-date {
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            opacity: 0.85;
+        }
+        
+        .week-activity {
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        
+        .week-detail {
+            font-size: 0.85em;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+        
+        .week-note {
+            font-size: 0.8em;
+            margin-top: 5px;
+            opacity: 0.6;
+            font-style: italic;
+        }
+        
+        footer {
+            background: #9b87c4;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .vision h2 {
+                font-size: 1.1em;
+            }
+            
+            .vision p {
+                font-size: 1em;
+            }
+            
+            .week-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .legend {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .download-btn {
+                padding: 10px 25px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🕊️ 2026 年度承命小組聚會安排</h1>
+            <div class="vision">
+                <h2>小組異象:</h2>
+                <p>成為一個互相守望、彼此牧養、彼此建立、見證主愛的屬靈群體,以主的愛去承載組員和新朋友的生命。</p>
+            </div>
+        </header>
+        
+        <div class="verse">
+            <p>要用愛心說誠實話,各方面向著基督長進,連於元首基督。</p>
+            <cite>— 以弗所書 4:15</cite>
+        </div>
+
+        <div class="download-section">
+            <button class="download-btn" onclick="downloadCalendar()">📅 下載日曆</button>
+            <button class="download-btn" onclick="downloadYearImage()">🖼️ 下載年曆圖</button>
+        </div>
+        
+        <div class="content">
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color color-rest"></div>
+                    <span>休息及pre-查經</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color color-journey"></div>
+                    <span>靈程同行</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color color-life"></div>
+                    <span>樂活分享</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color color-bible"></div>
+                    <span>查經</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color color-special"></div>
+                    <span>特別活動</span>
+                </div>
+            </div>
+
+            <!-- 1月 -->
+            <div class="month-section">
+                <div class="month-header">📅 一月</div>
+                <div class="week-grid">
+                    <div class="week-card rest">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">1月4日</div>
+                        <div class="week-activity">休息及pre-查經</div>
+                    </div>
+                    <div class="week-card journey">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">1月11日</div>
+                        <div class="week-activity">靈程同行</div>
+                        <div class="week-detail">《原來你很特別》讀後分享: 第3-4章</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">1月18日</div>
+                        <div class="week-activity">改為1月份查經</div>
+                    </div>
+                    <div class="week-card pause">
+                        <div class="week-title">第四個主日</div>
+                        <div class="week-date">1月25日</div>
+                        <div class="week-activity">暫停</div>
+                        <div class="week-detail">獻堂感恩崇拜</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2月 -->
+            <div class="month-section">
+                <div class="month-header">📅 二月</div>
+                <div class="week-grid">
+                    <div class="week-card rest">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">2月1日</div>
+                        <div class="week-activity">休息及pre-查經</div>
+                    </div>
+                    <div class="week-card journey">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">2月8日</div>
+                        <div class="week-activity">靈程同行</div>
+                        <div class="week-detail">「找找我」- 生命特質:才能、恩賜</div>
+                    </div>
+                    <div class="week-card life">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">2月15日</div>
+                        <div class="week-activity">樂活分享(暫定)</div>
+                        <div class="week-note">視乎帶組肢體安排</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第四個主日</div>
+                        <div class="week-date">2月22日</div>
+                        <div class="week-activity">查經</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3月 -->
+            <div class="month-section">
+                <div class="month-header">📅 三月</div>
+                <div class="week-grid">
+                    <div class="week-card special">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">3月1日</div>
+                        <div class="week-activity">異象分享會</div>
+                    </div>
+                    <div class="week-card pause">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">3月8日</div>
+                        <div class="week-activity">暫停</div>
+                        <div class="week-detail">華人區會聯合崇拜</div>
+                    </div>
+                    <div class="week-card life">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">3月15日</div>
+                        <div class="week-activity">樂活分享(暫定)</div>
+                        <div class="week-note">視乎帶組肢體安排</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第四個主日</div>
+                        <div class="week-date">3月22日</div>
+                        <div class="week-activity">查經</div>
+                    </div>
+                    <div class="week-card absent">
+                        <div class="week-title">第五個主日</div>
+                        <div class="week-date">3月29日</div>
+                        <div class="week-activity">從缺</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4月 -->
+            <div class="month-section">
+                <div class="month-header">📅 四月</div>
+                <div class="week-grid">
+                    <div class="week-card special">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">4月5日</div>
+                        <div class="week-activity">復活節崇拜</div>
+                    </div>
+                    <div class="week-card journey">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">4月12日</div>
+                        <div class="week-activity">靈程同行</div>
+                        <div class="week-detail">「找找我」- 生命特質:熱情、喜好</div>
+                    </div>
+                    <div class="week-card life">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">4月19日</div>
+                        <div class="week-activity">樂活分享(暫定)</div>
+                        <div class="week-note">視乎帶組肢體安排</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第四個主日</div>
+                        <div class="week-date">4月26日</div>
+                        <div class="week-activity">查經</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5月 -->
+            <div class="month-section">
+                <div class="month-header">📅 五月</div>
+                <div class="week-grid">
+                    <div class="week-card rest">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">5月3日</div>
+                        <div class="week-activity">休息及pre-查經</div>
+                    </div>
+                    <div class="week-card journey">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">5月10日</div>
+                        <div class="week-activity">靈程同行</div>
+                        <div class="week-detail">《原來你很特別》讀後分享: 第5-6章</div>
+                    </div>
+                    <div class="week-card life">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">5月17日</div>
+                        <div class="week-activity">樂活分享(暫定)</div>
+                        <div class="week-note">視乎帶組肢體安排</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第四個主日</div>
+                        <div class="week-date">5月24日</div>
+                        <div class="week-activity">查經</div>
+                    </div>
+                    <div class="week-card absent">
+                        <div class="week-title">第五個主日</div>
+                        <div class="week-date">5月31日</div>
+                        <div class="week-activity">從缺</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6月 -->
+            <div class="month-section">
+                <div class="month-header">📅 六月</div>
+                <div class="week-grid">
+                    <div class="week-card rest">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">6月7日</div>
+                        <div class="week-activity">休息及pre-查經</div>
+                    </div>
+                    <div class="week-card journey">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">6月14日</div>
+                        <div class="week-activity">靈程同行</div>
+                        <div class="week-detail">「找找我」- 放下重擔</div>
+                    </div>
+                    <div class="week-card life">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">6月21日</div>
+                        <div class="week-activity">樂活分享(暫定)</div>
+                        <div class="week-note">視乎帶組肢體安排</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第四個主日</div>
+                        <div class="week-date">6月28日</div>
+                        <div class="week-activity">查經</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7月 -->
+            <div class="month-section">
+                <div class="month-header">📅 七月</div>
+                <div class="week-grid">
+                    <div class="week-card rest">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">7月5日</div>
+                        <div class="week-activity">休息及pre-查經</div>
+                    </div>
+                    <div class="week-card journey">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">7月12日</div>
+                        <div class="week-activity">靈程同行</div>
+                        <div class="week-detail">《原來你很特別》讀後分享: 第7-8章</div>
+                    </div>
+                    <div class="week-card life">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">7月19日</div>
+                        <div class="week-activity">樂活分享(暫定)</div>
+                        <div class="week-note">視乎帶組肢體安排</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第四個主日</div>
+                        <div class="week-date">7月26日</div>
+                        <div class="week-activity">查經</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8月 -->
+            <div class="month-section">
+                <div class="month-header">📅 八月</div>
+                <div class="week-grid">
+                    <div class="week-card rest">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">8月2日</div>
+                        <div class="week-activity">休息及pre-查經</div>
+                    </div>
+                    <div class="week-card journey">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">8月9日</div>
+                        <div class="week-activity">靈程同行</div>
+                        <div class="week-detail">「找找我」- 一同成長</div>
+                    </div>
+                    <div class="week-card life">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">8月16日</div>
+                        <div class="week-activity">樂活分享(暫定)</div>
+                        <div class="week-note">視乎帶組肢體安排</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第四個主日</div>
+                        <div class="week-date">8月23日</div>
+                        <div class="week-activity">查經</div>
+                    </div>
+                    <div class="week-card absent">
+                        <div class="week-title">第五個主日</div>
+                        <div class="week-date">8月30日</div>
+                        <div class="week-activity">從缺</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9月 -->
+            <div class="month-section">
+                <div class="month-header">📅 九月</div>
+                <div class="week-grid">
+                    <div class="week-card rest">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">9月6日</div>
+                        <div class="week-activity">休息及pre-查經</div>
+                    </div>
+                    <div class="week-card pause">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">9月13日</div>
+                        <div class="week-activity">暫停</div>
+                        <div class="week-detail">會員大會</div>
+                    </div>
+                    <div class="week-card life">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">9月20日</div>
+                        <div class="week-activity">樂活分享(暫定)</div>
+                        <div class="week-note">視乎帶組肢體安排</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第四個主日</div>
+                        <div class="week-date">9月27日</div>
+                        <div class="week-activity">查經</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10月 -->
+            <div class="month-section">
+                <div class="month-header">📅 十月</div>
+                <div class="week-grid">
+                    <div class="week-card rest">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">10月4日</div>
+                        <div class="week-activity">休息及pre-查經</div>
+                    </div>
+                    <div class="week-card pause">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">10月11日</div>
+                        <div class="week-activity">暫停</div>
+                        <div class="week-detail">禱告禁食日</div>
+                    </div>
+                    <div class="week-card pause">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">10月18日</div>
+                        <div class="week-activity">暫停</div>
+                        <div class="week-detail">安得烈團佈道會</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第四個主日</div>
+                        <div class="week-date">10月25日</div>
+                        <div class="week-activity">查經</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11月 -->
+            <div class="month-section">
+                <div class="month-header">📅 十一月</div>
+                <div class="week-grid">
+                    <div class="week-card rest">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">11月1日</div>
+                        <div class="week-activity">休息及pre-查經</div>
+                    </div>
+                    <div class="week-card journey">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">11月8日</div>
+                        <div class="week-activity">靈程同行</div>
+                        <div class="week-detail">《原來你很特別》讀後分享: 第9-10章</div>
+                    </div>
+                    <div class="week-card life">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">11月15日</div>
+                        <div class="week-activity">樂活分享(暫定)</div>
+                        <div class="week-note">視乎帶組肢體安排</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第四個主日</div>
+                        <div class="week-date">11月22日</div>
+                        <div class="week-activity">查經</div>
+                    </div>
+                    <div class="week-card absent">
+                        <div class="week-title">第五個主日</div>
+                        <div class="week-date">11月29日</div>
+                        <div class="week-activity">從缺</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12月 -->
+            <div class="month-section">
+                <div class="month-header">📅 十二月</div>
+                <div class="week-grid">
+                    <div class="week-card rest">
+                        <div class="week-title">第一個主日</div>
+                        <div class="week-date">12月6日</div>
+                        <div class="week-activity">休息及pre-查經</div>
+                    </div>
+                    <div class="week-card journey">
+                        <div class="week-title">第二個主日</div>
+                        <div class="week-date">12月13日</div>
+                        <div class="week-activity">靈程同行</div>
+                        <div class="week-detail">「找找我」- 承擔使命、承載生命</div>
+                    </div>
+                    <div class="week-card life">
+                        <div class="week-title">第三個主日</div>
+                        <div class="week-date">12月20日</div>
+                        <div class="week-activity">樂活分享(暫定)</div>
+                        <div class="week-note">視乎帶組肢體安排</div>
+                    </div>
+                    <div class="week-card bible">
+                        <div class="week-title">第四個主日</div>
+<div class="week-date">12月27日</div>
+<div class="week-activity">查經</div>
+</div>
+</div>
+</div>
+</div>
+    <footer>
+        <p>© 2026 承命小組</p>
+    </footer>
+</div>
+
+<script>
+    // 下載ICS日曆 (不修改)
+    function downloadCalendar() {
+        const events = [
+            {date: '20260104', activity: '休息及pre-查經'},
+            {date: '20260111', activity: '靈程同行'},
+            {date: '20260118', activity: '查經'},
+            {date: '20260125', activity: '暫停 (獻堂感恩崇拜)'},
+            {date: '20260201', activity: '休息及pre-查經'},
+            {date: '20260208', activity: '靈程同行'},
+            {date: '20260215', activity: '樂活分享'},
+            {date: '20260222', activity: '查經'},
+            {date: '20260301', activity: '異象分享會'},
+            {date: '20260308', activity: '暫停 (華人區會聯合崇拜)'},
+            {date: '20260315', activity: '樂活分享'},
+            {date: '20260322', activity: '查經'},
+            {date: '20260405', activity: '復活節崇拜'},
+            {date: '20260412', activity: '靈程同行'},
+            {date: '20260419', activity: '樂活分享'},
+            {date: '20260426', activity: '查經'},
+            {date: '20260503', activity: '休息及pre-查經'},
+            {date: '20260510', activity: '靈程同行'},
+            {date: '20260517', activity: '樂活分享'},
+            {date: '20260524', activity: '查經'},
+            {date: '20260607', activity: '休息及pre-查經'},
+            {date: '20260614', activity: '靈程同行'},
+            {date: '20260621', activity: '樂活分享'},
+            {date: '20260628', activity: '查經'},
+            {date: '20260705', activity: '休息及pre-查經'},
+            {date: '20260712', activity: '靈程同行'},
+            {date: '20260719', activity: '樂活分享'},
+            {date: '20260726', activity: '查經'},
+            {date: '20260802', activity: '休息及pre-查經'},
+            {date: '20260809', activity: '靈程同行'},
+            {date: '20260816', activity: '樂活分享'},
+            {date: '20260823', activity: '查經'},
+            {date: '20260906', activity: '休息及pre-查經'},
+            {date: '20260913', activity: '暫停 (會員大會)'},
+            {date: '20260920', activity: '樂活分享'},
+            {date: '20260927', activity: '查經'},
+            {date: '20261004', activity: '休息及pre-查經'},
+            {date: '20261011', activity: '暫停 (禱告禁食日)'},
+            {date: '20261018', activity: '暫停 (安得烈團佈道會)'},
+            {date: '20261025', activity: '查經'},
+            {date: '20261101', activity: '休息及pre-查經'},
+            {date: '20261108', activity: '靈程同行'},
+            {date: '20261115', activity: '樂活分享'},
+            {date: '20261122', activity: '查經'},
+            {date: '20261206', activity: '休息及pre-查經'},
+            {date: '20261213', activity: '靈程同行'},
+            {date: '20261220', activity: '樂活分享'},
+            {date: '20261227', activity: '查經'}
+        ];
+
+        let icsContent = 'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//承命小組//2026年度聚會//ZH\nCALSCALE:GREGORIAN\n';
+        
+        events.forEach(event => {
+            const year = event.date.substring(0, 4);
+            const month = event.date.substring(4, 6);
+            const day = event.date.substring(6, 8);
+            
+            icsContent += 'BEGIN:VEVENT\n';
+            icsContent += `DTSTART:${event.date}\n`;
+            icsContent += `DTEND:${event.date}\n`;
+            icsContent += `SUMMARY:承命小組 - ${event.activity}\n`;
+            icsContent += 'DESCRIPTION:2026年度承命小組聚會\n';
+            icsContent += 'END:VEVENT\n';
+        });
+        
+        icsContent += 'END:VCALENDAR';
+        
+        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = '承命小組2026年度聚會.ics';
+        link.click();
+    }
+
+    // 下載年曆圖 (不修改)
+    function downloadYearImage() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 1200;
+        canvas.height = 1600;
+        const ctx = canvas.getContext('2d');
+
+        // 背景漸層
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, '#a8c5e6');
+        gradient.addColorStop(1, '#c8a8d8');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // 標題
+        ctx.fillStyle = '#4a5568';
+        ctx.font = 'bold 48px Arial, "Microsoft JhengHei"';
+        ctx.textAlign = 'center';
+        ctx.fillText('🕊️ 2026年度承命小組聚會', canvas.width / 2, 70);
+
+        // 月份數據
+        const monthData = [
+            {month: '一月', events: ['1/11 《原來你很特別》3-4章', '1/18 查經', '1/25 獻堂感恩崇拜']},
+            {month: '二月', events: ['2/8 「找找我」', '2/15 樂活分享', '2/22 查經']},
+            {month: '三月', events: ['3/1 異象分享會', '3/8 華人區會聯合崇拜', '3/15 樂活分享', '3/22 查經']},
+            {month: '四月', events: ['4/12 「找找我」', '4/19 樂活分享', '4/26 查經']},
+            {month: '五月', events: ['5/10 《原來你很特別》5-6章', '5/17 樂活分享', '5/24 查經']},
+            {month: '六月', events: ['6/14 「找找我」', '6/21 樂活分享', '6/28 查經']},
+            {month: '七月', events: ['7/12 《原來你很特別》7-8章', '7/19 樂活分享', '7/26 查經']},
+            {month: '八月', events: ['8/9 「找找我」', '8/16 樂活分享', '8/23 查經']},
+            {month: '九月', events: ['9/13 會員大會', '9/20 樂活分享', '9/27 查經']},
+            {month: '十月', events: ['10/11 禱告禁食日', '10/18 佈道會', '10/25 查經']},
+            {month: '十一月', events: ['11/8 《原來你很特別》9-10章', '11/15 樂活分享', '11/22 查經']},
+            {month: '十二月', events: ['12/13 「找找我」', '12/20 樂活分享', '12/27 查經']}
+        ];
+
+        // 繪製月份格子
+        let startY = 140;
+        const cols = 3;
+        const rows = 4;
+        const boxWidth = 350;
+        const boxHeight = 330;
+        const padding = 30;
+        const startX = (canvas.width - (cols * boxWidth + (cols - 1) * padding)) / 2;
+
+        monthData.forEach((data, index) => {
+            const col = index % cols;
+            const row = Math.floor(index / cols);
+            const x = startX + col * (boxWidth + padding);
+            const y = startY + row * (boxHeight + padding);
+
+            // 月份背景
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.fillRect(x, y, boxWidth, boxHeight);
+            ctx.strokeStyle = '#9b87c4';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(x, y, boxWidth, boxHeight);
+
+            // 月份標題
+            ctx.fillStyle = '#9b87c4';
+            ctx.font = 'bold 32px Arial, "Microsoft JhengHei"';
+            ctx.textAlign = 'center';
+            ctx.fillText(data.month, x + boxWidth / 2, y + 45);
+
+            // 活動列表
+            ctx.fillStyle = '#4a5568';
+            ctx.font = '22px Arial, "Microsoft JhengHei"';
+            ctx.textAlign = 'left';
+            data.events.forEach((event, i) => {
+                const maxWidth = boxWidth - 40;
+                let yPos = y + 90 + i * 60;
+                
+                // 檢查文字長度,如果超過25個字元就縮小字體
+                if (event.length > 25) {
+                    ctx.font = '18px Arial, "Microsoft JhengHei"';
+                } else {
+                    ctx.font = '22px Arial, "Microsoft JhengHei"';
+                }
+                
+                ctx.fillText(event, x + 20, yPos);
+            });
+        });
+
+        // 下載
+        canvas.toBlob(blob => {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = '承命小組2026年度年曆.png';
+            link.click();
+        });
+    }
+</script>
+
